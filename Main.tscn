@@ -1,0 +1,176 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="PrismMesh" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+[sub_resource type="PrismMesh" id=4]
+
+[sub_resource type="PrismMesh" id=5]
+
+[sub_resource type="QuadMesh" id=6]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+velx = 15
+xpos = 187
+ypos = 91
+
+[node name="Object" type="Node2D" parent="."]
+position = Vector2( 187, 91 )
+z_index = 3
+
+[node name="Mesh" type="MeshInstance2D" parent="Object"]
+modulate = Color( 0.960784, 0.0470588, 0.0470588, 1 )
+material = SubResource( 1 )
+rotation = 4.71239
+scale = Vector2( 10, 20 )
+z_index = 1
+mesh = SubResource( 2 )
+
+[node name="Velocity" type="MeshInstance2D" parent="Object"]
+modulate = Color( 0.827451, 0, 1, 0.258824 )
+material = SubResource( 1 )
+rotation = -1.5708
+scale = Vector2( 15, 25 )
+mesh = SubResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Object"]
+margin_left = -160.0
+margin_top = -10.0
+margin_right = -30.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Object/PanelContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 123.0
+margin_bottom = 21.0
+text = "ANGLE: 1.423402"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TargetObject" type="Node2D" parent="."]
+position = Vector2( 222, 432 )
+
+[node name="Mesh" type="MeshInstance2D" parent="TargetObject"]
+modulate = Color( 0.0470588, 0.12549, 0.960784, 1 )
+material = SubResource( 3 )
+rotation = 4.71239
+scale = Vector2( 10, 20 )
+mesh = SubResource( 4 )
+
+[node name="DestinationObject" type="Node2D" parent="."]
+position = Vector2( 918, 124 )
+
+[node name="Mesh" type="MeshInstance2D" parent="DestinationObject"]
+modulate = Color( 0.141176, 0.960784, 0.0470588, 1 )
+material = SubResource( 3 )
+rotation = 4.71239
+scale = Vector2( 10, 20 )
+mesh = SubResource( 5 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 909.0
+margin_top = 2.0
+margin_right = 1022.0
+margin_bottom = 596.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DotPro" type="Label" parent="GridContainer"]
+margin_right = 91.0
+margin_bottom = 14.0
+text = "Dot: 0.102103"
+
+[node name="Indicators" type="Node2D" parent="."]
+
+[node name="Velocity" type="Node2D" parent="Indicators"]
+position = Vector2( 262, 91 )
+
+[node name="Line" type="MeshInstance2D" parent="Indicators/Velocity"]
+modulate = Color( 0.898039, 0, 1, 1 )
+scale = Vector2( 75, 2 )
+mesh = SubResource( 6 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Indicators/Velocity"]
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Indicators/Velocity/PanelContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 67.0
+margin_bottom = 21.0
+text = "VELOCITY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Target" type="Node2D" parent="Indicators"]
+position = Vector2( 204.5, 261.5 )
+
+[node name="Line" type="MeshInstance2D" parent="Indicators/Target"]
+modulate = Color( 0, 1, 0.929412, 1 )
+rotation = 1.46852
+scale = Vector2( 171.396, 2 )
+mesh = SubResource( 6 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Indicators/Target"]
+margin_right = 6.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Indicators/Target/PanelContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 123.0
+margin_bottom = 21.0
+text = "ANGLE: 1.468515"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Destination" type="Node2D" parent="Indicators"]
+position = Vector2( 552.5, 107.5 )
+
+[node name="Line" type="MeshInstance2D" parent="Indicators/Destination"]
+modulate = Color( 0, 1, 0.415686, 1 )
+rotation = 0.045113
+scale = Vector2( 365.872, 2 )
+mesh = SubResource( 6 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Indicators/Destination"]
+margin_right = 88.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Indicators/Destination/PanelContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 123.0
+margin_bottom = 21.0
+text = "ANGLE: 0.045113"
+__meta__ = {
+"_edit_use_anchors_": false
+}
