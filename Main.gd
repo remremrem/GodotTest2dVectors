@@ -3,16 +3,19 @@ extends Node2D
 
 var dot_product
 #export var cross_product = Vector2()
-export(int, -100, 100, 1) var velx setget update_vel_x
-export(int, -100, 100, 1) var vely setget update_vel_y
+#export(int, -100, 100, 1) var velx setget update_vel_x
+#export(int, -100, 100, 1) var vely setget update_vel_y
 
 export(int, -100, 1000, 1) var xpos setget update_pos_x
 export(int, -100, 1000, 1) var ypos setget update_pos_y
+
+export(int, -720, 720, 1) var velrot setget update_velrot
 
 var velocity = Vector2(10,0)
 
 var distance_to_target
 var direction_to_target
+#export var input_speed = 10
 
 #export var update = false setget do_update
 
@@ -30,7 +33,13 @@ func _on_timer_timeout():
     #print("timer timeout")
     do_update(1)
 
-func update_vel_x(arg):
+func update_velrot(arg):
+    velrot = arg
+    velocity = Vector2(velocity.length(),0).rotated(deg2rad(arg))
+    print("velocity: ", velocity)
+    update_velocity()
+
+"""func update_vel_x(arg):
     velx = arg
     update_vel()
     
@@ -39,7 +48,7 @@ func update_vel_y(arg):
     update_vel()
     
 func update_vel():
-    velocity = Vector2(velx, vely)
+    velocity = Vector2(velx, vely)"""
     
 
 func update_pos_x(arg):
@@ -116,12 +125,14 @@ func do_update(arg):
     #update_dot_pro(t, v)
     
     
-    
-    
-    
-
-#func _process(delta):
-    #$Object.rotation_degrees += 180*delta
-    #print("rotation_degrees")
-    #pass
+"""func _process(delta):
+    if Input.is_action_pressed("ui_left"):
+        print("move left")
+        update_pos_x(-delta * input_speed)
+    elif Input.is_action_pressed("ui_right"):
+        update_pos_x(delta * input_speed)
+    elif Input.is_action_pressed("ui_up"):
+        update_pos_y(-delta * input_speed)
+    elif Input.is_action_pressed("ui_down"):
+        update_pos_y(delta * input_speed)"""
     

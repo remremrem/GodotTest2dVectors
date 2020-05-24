@@ -15,13 +15,14 @@
 [sub_resource type="QuadMesh" id=6]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 0, 3 )
 script = ExtResource( 2 )
-velx = 15
-xpos = 187
-ypos = 91
+xpos = 338
+ypos = 245
+velrot = 380
 
 [node name="Object" type="Node2D" parent="."]
-position = Vector2( 187, 91 )
+position = Vector2( 338, 242 )
 z_index = 3
 
 [node name="Mesh" type="MeshInstance2D" parent="Object"]
@@ -35,7 +36,7 @@ mesh = SubResource( 2 )
 [node name="Velocity" type="MeshInstance2D" parent="Object"]
 modulate = Color( 0.827451, 0, 1, 0.258824 )
 material = SubResource( 1 )
-rotation = -1.5708
+rotation = -1.22173
 scale = Vector2( 15, 25 )
 mesh = SubResource( 2 )
 
@@ -54,7 +55,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 123.0
 margin_bottom = 21.0
-text = "ANGLE: 1.423402"
+text = "ANGLE: 2.319629"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,18 +90,19 @@ __meta__ = {
 }
 
 [node name="DotPro" type="Label" parent="GridContainer"]
-margin_right = 91.0
+margin_right = 96.0
 margin_bottom = 14.0
-text = "Dot: 0.102103"
+text = "Dot: -0.197746"
 
 [node name="Indicators" type="Node2D" parent="."]
 
 [node name="Velocity" type="Node2D" parent="Indicators"]
-position = Vector2( 262, 91 )
+position = Vector2( 384.985, 259.101 )
+rotation = 0.349066
 
 [node name="Line" type="MeshInstance2D" parent="Indicators/Velocity"]
 modulate = Color( 0.898039, 0, 1, 1 )
-scale = Vector2( 75, 2 )
+scale = Vector2( 50, 2 )
 mesh = SubResource( 6 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Indicators/Velocity"]
@@ -122,12 +124,12 @@ __meta__ = {
 }
 
 [node name="Target" type="Node2D" parent="Indicators"]
-position = Vector2( 204.5, 261.5 )
+position = Vector2( 280, 337 )
 
 [node name="Line" type="MeshInstance2D" parent="Indicators/Target"]
 modulate = Color( 0, 1, 0.929412, 1 )
-rotation = 1.46852
-scale = Vector2( 171.396, 2 )
+rotation = 2.11892
+scale = Vector2( 111.306, 2 )
 mesh = SubResource( 6 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Indicators/Target"]
@@ -143,18 +145,18 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 123.0
 margin_bottom = 21.0
-text = "ANGLE: 1.468515"
+text = "ANGLE: 2.11892"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Destination" type="Node2D" parent="Indicators"]
-position = Vector2( 552.5, 107.5 )
+position = Vector2( 628, 183 )
 
 [node name="Line" type="MeshInstance2D" parent="Indicators/Destination"]
 modulate = Color( 0, 1, 0.415686, 1 )
-rotation = 0.045113
-scale = Vector2( 365.872, 2 )
+rotation = -0.200709
+scale = Vector2( 295.941, 2 )
 mesh = SubResource( 6 )
 
 [node name="PanelContainer" type="PanelContainer" parent="Indicators/Destination"]
@@ -170,7 +172,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 123.0
 margin_bottom = 21.0
-text = "ANGLE: 0.045113"
+text = "ANGLE: -0.200709"
 __meta__ = {
 "_edit_use_anchors_": false
 }
